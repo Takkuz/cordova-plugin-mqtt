@@ -127,6 +127,10 @@ public class CordovaMqTTPlugin extends CordovaPlugin {
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
+            if (cid != null || !cid.equals("")) {
+                mqtt.setClientId(cid);
+                mqtt.setCleanSession(false);
+            }
             connection = mqtt.callbackConnection();
 
             connection.connect(new Callback<Void>() {
